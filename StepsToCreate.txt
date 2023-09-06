@@ -1,0 +1,5 @@
+1. Installing dependencies @reduxjs/toolkit , react-redux
+2. Creating a store.js and importing configureStore and exporting in it
+3. Creating a feature folder where we can keep the different features of our app
+    - Now in this, every feature will have slices
+4. 
