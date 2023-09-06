@@ -1,11 +1,12 @@
 import './App.css';
+import AddToDo from './components/AddToDo';
+import Todo from './components/Todo';
 
 function App() {
   return (
     <div className="App">
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+      <AddToDo />
+      <Todo />
     </div>
   );
 }

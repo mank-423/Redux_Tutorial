@@ -2,7 +2,7 @@ import { createSlice, nanoid } from '@reduxjs/toolkit'
 
 //This is the initial state in the slice which we will update
 const initialState = {
-    todos: [],
+    todos: [{id: 1, text: 'Hello'}],
 }
 
 //Now creating a slice and exporting it
@@ -23,13 +23,20 @@ export const todoSlice = createSlice({
         },
 
         removeTodo: (state, action) => {
-            state.todos.filter((todo) => 
-                todo.id != action.payload
-            )
+            // state.todos.filter((todo) => 
+            //     todo.id !== action.payload
+            // )
+            const todoIndex = state.todos.findIndex((todo) => todo.id === action.payload);
+            if (todoIndex !== -1) {
+                state.todos.splice(todoIndex, 1); // Remove the todo at the specified index
+            }
         }
     }
 })
 
+//We are using this to acess direclty the reducers
+// Using useDispatch hook
 export const {addTodo, removeTodo} = todoSlice.actions;
 
+//Using useSelector we can access the whole reducer
 export default todoSlice.reducer;
